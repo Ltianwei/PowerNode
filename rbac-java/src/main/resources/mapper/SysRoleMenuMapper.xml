@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.node.mapper.SysRoleMenuMapper">
+    <resultMap id="BaseResultMap" type="com.node.domain.SysRoleMenu">
+        <!--@mbg.generated-->
+        <!--@Table sys_role_menu-->
+        <id column="role_id" jdbcType="BIGINT" property="roleId"/>
+        <id column="menu_id" jdbcType="BIGINT" property="menuId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        role_id, menu_id
+    </sql>
+    <delete id="deleteByPrimaryKey" parameterType="map">
+        <!--@mbg.generated-->
+        delete
+        from sys_role_menu
+        where role_id = #{roleId,jdbcType=BIGINT}
+          and menu_id = #{menuId,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.node.domain.SysRoleMenu">
+        <!--@mbg.generated-->
+        insert into sys_role_menu (role_id, menu_id)
+        values (#{roleId,jdbcType=BIGINT}, #{menuId,jdbcType=BIGINT})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.node.domain.SysRoleMenu">
+        <!--@mbg.generated-->
+        insert into sys_role_menu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="roleId != null">
+                role_id,
+            </if>
+            <if test="menuId != null">
+                menu_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="roleId != null">
+                #{roleId,jdbcType=BIGINT},
+            </if>
+            <if test="menuId != null">
+                #{menuId,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <select id="selectByRoleId" resultType="java.lang.Integer">
+        <!--查询当前角色下的 菜单 -->
+        select count(*)
+        from sys_role_menu
+        where role_id = #{roleId}
+    </select>
+    <delete id="deleteRoleMenuByRoleId">
+        <!--删除当前角色下的所有菜单-->
+        delete
+        from sys_role_menu
+        where role_id = #{roleId};
+    </delete>
+    <insert id="saveAllMenu">
+        <!--批量添加角色下的菜单-->
+        insert into sys_role_menu (role_id, menu_id) values
+        <foreach collection="menuIdList" separator="," item="item">
+            (#{roleId}, #{item})
+        </foreach>
+    </insert>
+    <!--查询用户对应的角色-->
+    <select id="getRoleIdsByUserId" resultType="java.lang.Long">
+    select sr.role_id from  sys_user_role sur join sys_role sr on sur.role_id = sr.role_id
+    where user_id=#{userId} and del_flag = 0
+    </select>
+</mapper>

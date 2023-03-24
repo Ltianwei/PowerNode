@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       https://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop
+       https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--
+       1.加载properties 文件配置
+       2.配置数据源 DataSource
+       3.配置SqlSessionFactoryBean
+       4.配置接口代理信息(Mapper 接口)
+       5.扫描器配置
+    -->
+
+    <!--properties 文件加载-->
+    <context:property-placeholder location="classpath:db.properties" system-properties-mode="FALLBACK"/>
+
+    <!--
+        配置数据源
+    -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="password" value="${jdbc.username}"/>
+        <property name="username" value="${jdbc.username}"/>
+    </bean>
+
+    <!--
+        配置sqlSessionFactory
+    -->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--
+            配置数据源
+        -->
+        <property name="dataSource" ref="dataSource"/>
+        <!--
+            配置别名
+        -->
+        <property name="typeAliasesPackage" value="com.node"/>
+        <!--
+            配置插件 分页插件
+        -->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor"/>
+            </array>
+        </property>
+        <!--
+            映射文件
+        -->
+        <property name="mapperLocations" value="classpath*:mapper/*.xml"/>
+        <!--
+            配置log4j 日志文件
+        -->
+        <property name="configuration" ref="configuration"/>
+
+    </bean>
+    <!--
+        配置日志文件log4j
+    -->
+    <bean id="configuration" class="org.apache.ibatis.session.Configuration">
+        <property name="logImpl" value="org.apache.ibatis.logging.log4j.Log4jImpl"/>
+    </bean>
+
+
+    <!--
+      根据接口返回接口代理对象
+   -->
+
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
+        <property name="basePackage" value="com.node.mapper"/>
+
+    </bean>
+
+    <context:component-scan base-package="com.node"/>
+
+    <!--事务-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+
+</beans>
