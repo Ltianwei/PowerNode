@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.node.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.node.domain.User">
+        <!--@mbg.generated-->
+        <!--@Table `user`-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="phone" jdbcType="INTEGER" property="phone"/>
+        <result column="birth" jdbcType="TIMESTAMP" property="birth"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, user_name, `password`, email, phone, birth
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from `user`
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete
+        from `user`
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.node.domain.User" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into `user` (user_name, `password`, email,
+                            phone, birth)
+        values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+                #{phone,jdbcType=INTEGER}, #{birth,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.node.domain.User"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into `user`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="password != null">
+                `password`,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="birth != null">
+                birth,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=INTEGER},
+            </if>
+            <if test="birth != null">
+                #{birth,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.node.domain.User">
+        <!--@mbg.generated-->
+        update `user`
+        <set>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                `password` = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=INTEGER},
+            </if>
+            <if test="birth != null">
+                birth = #{birth,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.node.domain.User">
+        <!--@mbg.generated-->
+        update `user`
+        set user_name  = #{userName,jdbcType=VARCHAR},
+            `password` = #{password,jdbcType=VARCHAR},
+            email      = #{email,jdbcType=VARCHAR},
+            phone      = #{phone,jdbcType=INTEGER},
+            birth      = #{birth,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="getUserByNameAndPsw" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List">
+        </include>
+        from user
+        where user_name = #{user.userName}
+          and password = #{user.password}
+    </select>
+    <!--查询所有-->
+    <select id="selectAll" resultMap="BaseResultMap">
+    select * from user;
+    </select>
+</mapper>
