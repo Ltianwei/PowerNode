@@ -8,6 +8,7 @@ import com.node.common.Page;
 import com.node.common.Result;
 import com.node.constants.CoreConstant;
 import com.node.domain.SysUser;
+import com.node.domain.User;
 import com.node.enums.BusinessType;
 import com.node.enums.ResultEnums;
 import com.node.enums.StateEnums;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 
 @RestController
@@ -112,6 +114,13 @@ public class sysUserController extends BaseController {
     public Result get(@PathVariable Long userId){
         SysUser sysUser = sysUserService.selectByPrimaryKey(userId);
         return new Result("查询成功",sysUser);
+    }
+
+    //查询所有的用户
+    @GetMapping("getAllUser")
+    public Result getAllUser(){
+       List<SysUser> list= sysUserService.getAllUser();
+        return new Result(list);
     }
 
 }

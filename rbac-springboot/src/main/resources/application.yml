@@ -1,13 +1,13 @@
 
 spring:
   jackson:
-    date-format: yyyy-MM-dd
+    date-format: yyyy-MM-dd HH:mm:ss
     #数据源的自动配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://124.222.170.196:3306/rbac?useUnicode=true&useSSL=false&characterEncoding=UTF8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/rbac?useUnicode=true&useSSL=false&characterEncoding=UTF8&serverTimezone=UTC
     username: root
-    password: 123456
+    password: root
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       max-active: 10

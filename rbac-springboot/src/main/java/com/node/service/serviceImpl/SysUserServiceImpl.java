@@ -79,4 +79,15 @@ public class SysUserServiceImpl implements SysUserService{
 
     }
 
+    @Override
+    public List<Long> getAllUserId() {
+
+        return sysUserMapper.getAllUserId();
+    }
+
+    @Override
+    public List<SysUser> getAllUser() {
+        return sysUserMapper.getAllUser();
+    }
+
 }

@@ -272,16 +272,14 @@
     <select id="selectMenu" resultMap="BaseResultMap">
         <!--查询所有的一级二级菜单-->
         select
-        <include refid="Base_Column_List">
-        </include>
+        *
         from sys_menu
         where menu_type in (0, 1)
     </select>
 
     <select id="selectMenuById" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List">
-        </include>
+       *
         from sys_menu sm
                      join sys_role_menu srm on sm.menu_id = srm.menu_id
                      join sys_user_role sur on srm.role_id = sur.role_id

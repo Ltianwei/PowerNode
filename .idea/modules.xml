@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/rbac-java/rbac-java.iml" filepath="$PROJECT_DIR$/rbac-java/rbac-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rbac-springboot/rbac-springboot.iml" filepath="$PROJECT_DIR$/rbac-springboot/rbac-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rbac-ssm.iml" filepath="$PROJECT_DIR$/rbac-ssm.iml" />
+    </modules>
+  </component>
+</project>

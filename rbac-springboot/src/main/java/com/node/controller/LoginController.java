@@ -8,6 +8,7 @@ import com.node.common.Result;
 import com.node.constants.CoreConstant;
 import com.node.domain.SysLoginInfo;
 import com.node.domain.SysUser;
+import com.node.domain.User;
 import com.node.enums.ResultEnums;
 import com.node.service.SysUserService;
 import com.node.utils.HttpUtils;
@@ -23,6 +24,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static net.sf.jsqlparser.util.validation.metadata.NamedObject.user;
 
 @RequestMapping
 @RestController
@@ -90,6 +93,10 @@ public class LoginController {
             session.setAttribute(CoreConstant.SESSION_KEY,sysUser);
             //设置状态
             sysLoginInfo.setStatus(0);
+            //这个代码是站内信的
+            //将用户信息存入session
+            ServletUtils.getSession().setAttribute("userMsg",new User(Math.toIntExact(sysUser.getUserId())));
+            /*-------------------------------------*/
             //设置登录成功
             sysLoginInfo.setMsg("登录成功");
         } finally {

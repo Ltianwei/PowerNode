@@ -28,4 +28,9 @@ public interface SysUserMapper {
     SysUser getUserByName(@Param("userName") String userName);
 
     SysUser getUserByNameAndId(@Param("sysUser") SysUser sysUser);
+
+    List<Long> getAllUserId();
+
+    List<SysUser> getAllUser();
+
 }

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisCodeHelperDatasource">
+    <option name="projectProfile">
+      <ProjectProfile>
+        <option name="addSerializeUid" value="true" />
+        <option name="generateService" value="true" />
+        <option name="generateServiceInterface" value="true" />
+        <option name="javaMapperPackage" value="com.node.mapper" />
+        <option name="javaMapperPath" value="$PROJECT_DIR$/rbac-java/src/main/java" />
+        <option name="javaModelPackage" value="com.node.domain" />
+        <option name="javaModelPath" value="$PROJECT_DIR$/rbac-java/src/main/java" />
+        <option name="lastDatabaseCrudChooseModuleName" value="rbac-java" />
+        <option name="lombokAllArgConstructor" value="true" />
+        <option name="lombokDataAnnotation" value="true" />
+        <option name="lombokNoArgsConstructor" value="true" />
+        <option name="modelAddToString" value="true" />
+        <option name="moduleNameToPackageAndPathMap">
+          <map>
+            <entry key="rbac-java">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.node.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/rbac-java/src/main/java" />
+                  <option name="javaModelPacakge" value="com.node.domain" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/rbac-java/src/main/java" />
+                  <option name="javaServiceInterfacePackage" value="com.node.service" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/rbac-java/src/main/java" />
+                  <option name="javaServicePackage" value="com.node.service.serviceImpl" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/rbac-java/src/main/java" />
+                  <option name="xmlPackage" value="mapper" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/rbac-java/src/main/resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="tableGenerateConfigs">
+          <map>
+            <entry key="rbac:sys_dept">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="dept_id" />
+                  <option name="javaModelName" value="SysDept" />
+                  <option name="moduleName" value="rbac-java" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="rbac:sys_dict_data">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="dict_code" />
+                  <option name="javaModelName" value="SysDictData" />
+                  <option name="moduleName" value="rbac-java" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="rbac:sys_dict_type">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="dict_id" />
+                  <option name="javaModelName" value="SysDictType" />
+                  <option name="moduleName" value="rbac-java" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="rbac:sys_login_info">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="info_id" />
+                  <option name="javaModelName" value="SysLoginInfo" />
+                  <option name="moduleName" value="rbac-java" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="rbac:sys_menu">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="SysMenu" />
+                  <option name="moduleName" value="rbac-java" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="rbac:sys_notice">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="notice_id" />
+                  <option name="javaModelName" value="SysNotice" />
+                  <option name="moduleName" value="rbac-java" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="rbac:sys_oper_log">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="oper_id" />
+                  <option name="javaModelName" value="SysOperLog" />
+                  <option name="moduleName" value="rbac-java" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="rbac:sys_role">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="role_id" />
+                  <option name="javaModelName" value="SysRole" />
+                  <option name="moduleName" value="rbac-java" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="rbac:sys_role_menu">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="SysRoleMenu" />
+                  <option name="moduleName" value="rbac-java" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="rbac:sys_user">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="user_id" />
+                  <option name="javaModelName" value="SysUser" />
+                  <option name="moduleName" value="rbac-java" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="rbac:sys_user_role">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="SysUserRole" />
+                  <option name="moduleName" value="rbac-java" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="xmlMapperPackage" value="mapper" />
+        <option name="xmlMapperPath" value="$PROJECT_DIR$/rbac-java/src/main/resources" />
+      </ProjectProfile>
+    </option>
+  </component>
+</project>

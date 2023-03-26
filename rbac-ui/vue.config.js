@@ -40,7 +40,7 @@ module.exports = {
     //定义跨域访问
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
-        target: `http://124.222.170.196:8080`,
+        target: `http://127.0.0.1:8080`,
         changeOrigin: true,
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''

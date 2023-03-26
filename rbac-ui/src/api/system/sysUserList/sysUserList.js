@@ -54,9 +54,18 @@ export default {
   /*
   * 根据用户id查询
   * */
-  get(params){
+  get(params) {
     return request({
       url: `${sysUser}/get/` + params,
+      method: "get"
+    })
+  },
+  /*
+  * 查询所有的用户
+  * */
+  getAllUser() {
+    return request({
+      url: `${sysUser}/getAllUser`,
       method: "get"
     })
   }
